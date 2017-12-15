@@ -30,7 +30,7 @@ class Epub
 
     public function text() : string
     {
-        $process = new Process("{$this->binPath} -r -n " . escapeshellarg($this->Epub) . " -");
+        $process = new Process("{$this->binPath} -r -n " . escapeshellarg($this->Epub));
         $process->run();
 
         if (!$process->isSuccessful()) {
