@@ -31,7 +31,7 @@ $ composer require jove4015/epub-to-text
 Extracting text from an epub is easy.
 
 ```php
-$text = (new epub())
+$text = (new Epub())
     ->setepub('book.epub')
     ->text();
 ```
@@ -39,20 +39,20 @@ $text = (new epub())
 Or easier:
 
 ```php
- \jove4015\EpubToText\epub::getText('book.epub')
+ \jove4015\EpubToText\Epub::getText('book.epub')
 ```
 
 By default the package will assume that the `epub2txt` is located at `/usr/bin/epub2txt`.
 If you're using the a different location pass the path to the binary in constructor
 ```php
-$text = (new epub('/custom/path/to/epub2txt'))
+$text = (new Epub('/custom/path/to/epub2txt'))
     ->setepub('book.epub')
     ->text();
 ```
 
 or as the second parameter to the `getText`-function:
 ```php
- \jove4015\EpubToText\epub::getText('book.epub', '/custom/path/to/epub2txt')
+ \jove4015\EpubToText\Epub::getText('book.epub', '/custom/path/to/epub2txt')
 ```
 
 ## Testing
