@@ -1,56 +1,58 @@
 <?php
 
-namespace Spatie\PdfToText\Test;
+namespace jove4015\EpubToText\Test;
 
 use PHPUnit\Framework\TestCase;
-use Spatie\PdfToText\Exceptions\CouldNotExtractText;
-use Spatie\PdfToText\Exceptions\PdfNotFound;
-use Spatie\PdfToText\Pdf;
+use jove4015\EpubToText\Exceptions\CouldNotExtractText;
+use jove4015\EpubToText\Exceptions\EpubNotFound;
+use jove4015\EpubToText\Epub;
 
-class PdfToTextTest extends TestCase
+#TODO - add in proper test files for epub
+
+class EpubToTextTest extends TestCase
 {
-    protected $dummyPdf = __DIR__.'/testfiles/dummy.pdf';
-    protected $dummyPdfText = 'This is a dummy PDF';
+    protected $dummyEpub = __DIR__.'/testfiles/dummy.Epub';
+    protected $dummyEpubText = 'This is a dummy Epub';
 
     /** @test */
-    public function it_can_extract_text_from_a_pdf()
+    public function it_can_extract_text_from_a_Epub()
     {
-        $text = (new Pdf())
-            ->setPdf($this->dummyPdf)
+        $text = (new Epub())
+            ->setEpub($this->dummyEpub)
             ->text();
 
-        $this->assertSame($this->dummyPdfText, $text);
+        $this->assertSame($this->dummyEpubText, $text);
     }
 
     /** @test */
     public function it_provides_a_static_method_to_extract_text()
     {
-        $this->assertSame($this->dummyPdfText, Pdf::getText($this->dummyPdf));
+        $this->assertSame($this->dummyEpubText, Epub::getText($this->dummyEpub));
     }
 
     /** @test */
     public function it_can_hande_paths_with_spaces()
     {
-        $pdfPath = __DIR__.'/testfiles/dummy with spaces in its name.pdf';
+        $EpubPath = __DIR__.'/testfiles/dummy with spaces in its name.Epub';
 
-        $this->assertSame($this->dummyPdfText, Pdf::getText($pdfPath));
+        $this->assertSame($this->dummyEpubText, Epub::getText($EpubPath));
     }
 
     /** @test */
     public function it_can_hande_paths_with_single_quotes()
     {
-        $pdfPath = __DIR__.'/testfiles/dummy\'s_file.pdf';
+        $EpubPath = __DIR__.'/testfiles/dummy\'s_file.Epub';
 
-        $this->assertSame($this->dummyPdfText, Pdf::getText($pdfPath));
+        $this->assertSame($this->dummyEpubText, Epub::getText($EpubPath));
     }
 
     /** @test */
-    public function it_will_throw_an_exception_when_the_pdf_is_not_found()
+    public function it_will_throw_an_exception_when_the_Epub_is_not_found()
     {
-        $this->expectException(PdfNotFound::class);
+        $this->expectException(EpubNotFound::class);
 
-        (new Pdf())
-            ->setPdf('/no/pdf/here/dummy.pdf')
+        (new Epub())
+            ->setEpub('/no/Epub/here/dummy.Epub')
             ->text();
     }
 
@@ -59,8 +61,8 @@ class PdfToTextTest extends TestCase
     {
         $this->expectException(CouldNotExtractText::class);
 
-        (new Pdf('/there/is/no/place/like/home/pdftotext'))
-            ->setPdf($this->dummyPdf)
+        (new Epub('/there/is/no/place/like/home/Epubtotext'))
+            ->setEpub($this->dummyEpub)
             ->text();
     }
 }

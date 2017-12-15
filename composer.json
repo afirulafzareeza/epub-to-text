@@ -1,17 +1,22 @@
 {
-    "name": "spatie/pdf-to-text",
-    "description": "Extract text from a pdf",
+    "name": "jove4015/epub-to-text",
+    "description": "Extract text from a epub - based on spatie/pdf-to-text",
     "keywords": [
-        "spatie",
-        "pdf-to-text"
+        "jove4015",
+        "epub-to-text"
     ],
-    "homepage": "https://github.com/spatie/pdf-to-text",
+    "homepage": "https://github.com/jove4015/epub-to-text",
     "license": "MIT",
     "authors": [
         {
             "name": "Freek Van der Herten",
             "email": "freek@spatie.be",
             "homepage": "https://spatie.be",
+            "role": "Developer"
+        },
+        {
+            "name": "Stephen Weiss",
+            "email": "smweiss@gmail.com",
             "role": "Developer"
         }
     ],
@@ -24,12 +29,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Spatie\\PdfToText\\": "src"
+            "jove4015\\epubToText\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Spatie\\PdfToText\\Test\\": "tests"
+            "jove4015\\epubToText\\Test\\": "tests"
         }
     },
     "scripts": {

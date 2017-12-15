@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\PdfToText\Exceptions;
+namespace jove4015\EpubToText\Exceptions;
 
 use Symfony\Component\Process\Exception\ProcessFailedException;
 
