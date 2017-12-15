@@ -29,12 +29,12 @@
     },
     "autoload": {
         "psr-4": {
-            "jove4015\\epubToText\\": "src"
+            "jove4015\\EpubToText\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "jove4015\\epubToText\\Test\\": "tests"
+            "jove4015\\EpubToText\\Test\\": "tests"
         }
     },
     "scripts": {
